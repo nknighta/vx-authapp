@@ -63,6 +63,9 @@ const Auth = () => {
     }
   } else if (send?.startsWith("docs.vx.page")) {
     window.location.href = "https://vx.varius.technology";
+    if (!user) {
+      signInWithGoogle();
+    }
   } else if (send?.startsWith("dash.home.vx.page")) {
     window.location.href = "https://varius.technology/dashboard";
   }
@@ -87,10 +90,7 @@ const Auth = () => {
               <strong>Provider:</strong> {user.providerData[0]?.providerId}
             </p>
 
-            <div>
-                successfully logged in
-                back to application...
-            </div>
+            <div>successfully logged in back to application...</div>
           </div>
           <button onClick={signOut} className="sign-out-button">
             Sign Out
